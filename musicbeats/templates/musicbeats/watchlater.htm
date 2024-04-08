@@ -1,0 +1,76 @@
+{% extends 'musicbeats/basic.htm' %}
+{% block title %}MusicBeats{% endblock %}
+
+{% block body %}
+{% load static %} 
+<h1 style="color: rgb(158, 60, 60); text-align: center;">Watch Later</h1>
+
+{% if song|length < 1 %}
+    <h3 style="text-align: center; padding-top: 5%;">You have no videos in your Watch Later</h3>
+{% endif %}
+
+<style>
+    body {
+        background-color: #24385c; /* fallback color */
+        background-image: linear-gradient(to bottom, #24385c, #57B7FF);
+        background-size: cover;
+        background-position: center;
+    }
+</style>
+
+<div class="container">
+    <div class="container-fluid py-5">
+        {% for i in song reversed %}
+        <div class="card mb-3" style="max-width: 940px; padding-top: 0%;">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="{{i.image}}" class="card-img" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: green; font-weight: 550;">{{i.name}}</h5>
+                        <p class="card-text">Tags: {{i.tags}}</p>
+                        <p class="card-text">Movie: {{i.movie}}</p>
+                        <a href="/musicbeats/songs/{{i.song_id}}"><button class="btn btn-outline-danger">Listen Song</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        
+        <!-- Let Me Down Slowly -->
+        <div class="card mb-3" style="max-width: 940px; padding-top: 0%;">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="https://c.saavncdn.com/681/Let-Me-Down-Slowly-English-2018-20190607042218-500x500.jpg" class="card-img" alt="Let Me Down Slowly">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: green; font-weight: 550;">Let Me Down Slowly</h5>
+                        <p class="card-text">Tags: Pop</p>
+                        <p class="card-text">Movie: None</p>
+                        <a href="https://www.youtube.com/watch?v=50VNCymT-Cs"><button class="btn btn-outline-danger">Listen Song</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Counting Stars -->
+        <div class="card mb-3" style="max-width: 940px; padding-top: 0%;">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="https://i.scdn.co/image/ab67616d0000b2739e2f95ae77cf436017ada9cb" class="card-img" alt="Counting Stars">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: green; font-weight: 550;">Counting Stars</h5>
+                        <p class="card-text">Tags: Pop</p>
+                        <p class="card-text">Movie: None</p>
+                        <a href="https://www.youtube.com/watch?v=zdXiSlRrgWQ"><button class="btn btn-outline-danger">Listen Song</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

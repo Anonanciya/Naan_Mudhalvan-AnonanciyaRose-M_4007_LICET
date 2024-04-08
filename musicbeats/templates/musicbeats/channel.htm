@@ -1,0 +1,67 @@
+{% extends 'musicbeats/basic.htm' %}
+{% block title %} Your Channel: {{ channel.name }}{% endblock %}
+
+{% block body %}
+<h2 style="text-align: center; padding-top: 2%; color: rgb(218, 16, 16);">Channel: {{ channel.name }}</h2>
+
+<div class="container">
+    {% for i in song reversed %}
+    <div class="card mb-3" style="max-width: 940px; padding-top: 0%;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{{ i.image }}" class="card-img" alt="{{ i.name }}">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: green; font-weight: 550;">{{ i.name }}</h5>
+                    <p class="card-text">Tags: {{ i.tags }}</p>
+                    <p class="card-text">Movie: {{ i.movie }}</p>
+                    {% if user.is_authenticated %}
+                    <form action="/musicbeats/history" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="music_id" value="{{ i.song_id }}">
+                        <button type="submit" class="btn btn-outline-danger">Listen Song</button>
+                    </form>
+                    {% else %}
+                    <a href="/musicbeats/songs/{{ i.song_id }}" class="btn btn-outline-danger">Listen Song</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <!-- Additional songs -->
+    <div class="card mb-3" style="max-width: 940px; padding-top: 0%;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="https://upload.wikimedia.org/wikipedia/en/1/1b/Tum_Hi_Aana.jpg" class="card-img" alt="Tum Hi Aana">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: green; font-weight: 550;">Tum Hi Aana</h5>
+                    <p class="card-text">Tags: Romantic, Bollywood</p>
+                    <p class="card-text">Movie: Marjaavaan</p>
+                    <a href="https://www.youtube.com/watch?v=RemShT6JAHw" class="btn btn-outline-danger">Listen Song</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-3" style="max-width: 940px; padding-top: 0%;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="https://i1.sndcdn.com/artworks-000195714133-e3t788-t500x500.jpg" class="card-img" alt="Stressed Out">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: green; font-weight: 550;">Stressed Out</h5>
+                    <p class="card-text">Tags: Pop, Alternative</p>
+                    <p class="card-text">Movie: None</p>
+                    <a href="https://www.youtube.com/watch?v=pXRviuL6vMY" class="btn btn-outline-danger">Listen Song</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

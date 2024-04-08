@@ -1,0 +1,57 @@
+{% extends 'musicbeats/basic.htm' %}
+{% block title %}Upload Your Music{% endblock %}
+
+{% block body %}
+<body style="background: linear-gradient(to bottom, #24385c, #57B7FF); background-image: url('https://us.123rf.com/450wm/oillove123/oillove1232308/oillove123230800455/220950593-music-background-with-musical-notes-vector-illustration-blue-background.jpg?ver=6'); background-size: cover; background-position: center;">
+
+<div class="container my-3">
+    <div class="card" style="max-width: 500px; margin: auto;">
+        <div class="card-body">
+            <h2 class="card-title text-center mb-4" style="color: rgb(218, 16, 16);">Upload Your Music</h2>
+            <form action="/musicbeats/upload" enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="musicName">Your Music Name</label>
+                    <input type="text" class="form-control" id="musicName" name="name" placeholder="Your Song Name">
+                </div>
+
+                <div class="form-group">
+                    <label for="singerName">Singer Name</label>
+                    <input type="text" class="form-control" id="singerName" name="singer" placeholder="Singer Name">
+                </div>
+
+                <div class="form-group">
+                    <label for="tags">Tags</label>
+                    <input type="text" class="form-control" id="tags" name="tag" placeholder="Tags (Seperate By Commas)">
+                </div>
+
+                <div class="form-group">
+                    <label for="imageLink">Image Link</label>
+                    <input type="text" class="form-control" id="imageLink" name="image" placeholder="Link to Image">
+                </div>
+
+                <div class="form-group">
+                    <label for="movieName">Movie Name</label>
+                    <input type="text" class="form-control" id="movieName" name="movie" placeholder="Movie name in which this song is there">
+                </div>
+
+                <div class="form-group">
+                    <label for="creditLink">Credit</label>
+                    <input type="text" class="form-control" id="creditLink" name="credit" placeholder="Add Credit Link">
+                </div>
+
+                <div class="form-group">
+                    <label for="musicFile">Upload Music File</label>
+                    <input type="file" class="form-control-file" id="musicFile" name="file">
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Upload...</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+{% endblock %}

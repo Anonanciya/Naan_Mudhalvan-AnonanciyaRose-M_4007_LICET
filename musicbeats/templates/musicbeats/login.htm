@@ -1,0 +1,116 @@
+{% extends 'musicbeats/basic.htm' %}
+{% block title %}Login{% endblock %}
+
+{% block body %}
+<div class="container-fluid py-5" style="background: linear-gradient(to bottom, #24385c, #57B7FF); background-image: url('https://t4.ftcdn.net/jpg/05/61/31/91/360_F_561319125_FlbZDuk6mdyAoypT139cSRKYomH9D4PY.jpg'); background-size: cover; background-position: center;">
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center mb-4">
+
+                    </div>
+                    <form action="/musicbeats/login" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Username</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block" style="background-color: #8A2BE2; border-color: #8A2BE2;">Log In</button>
+                    </form>
+                    <p class="text-center mt-2 forgot-password"><a href="#">Forgot password?</a></p>
+                    <div class="text-center">
+                        <p>Or continue with:</p>
+                        <a href="#" class="btn btn-outline-dark btn-block mb-2"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png" alt="Google Logo" class="logo"> Continue with Google</a>
+                        <a href="#" class="btn btn-outline-dark btn-block mb-2"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXoMFtNYy-gfuvVnQkKSiDAmfYt0ynmaGz55WPNbUPZw&s" alt="Facebook Logo" class="logo"> Continue with Facebook</a>
+                        <a href="#" class="btn btn-outline-light btn-block mb-2"><img src="https://logowik.com/content/uploads/images/gmail-new-icon5198.jpg" alt="Email Logo" class="logo"> Continue with Email</a>
+                        <a href="#" class="btn btn-outline-light btn-block mb-2"><img src="https://i.pinimg.com/originals/84/4e/8c/844e8cd4ab26c82286238471f0e5a901.png" alt="Phone Logo" class="logo"> Continue with Phone Number</a>
+                        <p class="signup">Don't have an account? <a href="/musicbeats/signup">Sign up</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    body {
+        background: linear-gradient(to bottom, #05085B, #57B7FF); /* Gradient from dark blue to light blue */
+        color: #333; /* Text color */
+    }
+
+    .card {
+        background-color: #ccc; /* Grey background color */
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-body {
+        padding: 30px;
+    }
+
+    .form-group label {
+        color: #333; /* Text color */
+    }
+
+    .form-control {
+        background-color: #fff; /* White input background */
+        border: none;
+        border-radius: 10px;
+        color: #333; /* Text color */
+    }
+
+    .btn-primary {
+        background-color: #8A2BE2; /* Violet color */
+        border: none;
+        border-radius: 10px;
+        padding: 10px;
+        font-weight: bold;
+    }
+
+    .btn-primary:hover {
+        background-color: #6B238E; /* Darker violet color on hover */
+    }
+
+    .btn-outline-dark {
+        border-color: #000; /* Text color */
+        color: #000; /* Text color */
+    }
+
+    .btn-outline-dark:hover {
+        background-color: #000; /* Text color */
+        color: #fff; /* White text color */
+    }
+
+    .btn-outline-light {
+        border-color: #333; /* Text color */
+        color: #333; /* Text color */
+    }
+
+    .btn-outline-light:hover {
+        background-color: #333; /* Text color */
+        color: #fff; /* White text color */
+    }
+
+    .logo {
+        height: 20px;
+        margin-right: 10px;
+    }
+
+    a {
+        color: #333; /* Text color */
+    }
+
+   
+    .forgot-password,
+    .signup {
+        color: #24385c; /* Blue color */
+    }
+</style>
+{% endblock %}
